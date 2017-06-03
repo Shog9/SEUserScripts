@@ -10,12 +10,16 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_listValues
+// @grant        unsafeWindow
+// @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // ==/UserScript==
 
-(function() {
+window.setTimeout(function() {
     'use strict';
 
     const RECONNECT_WAIT_MS = 500;
+
+    window.CHAT = unsafeWindow.CHAT;
 
     // The main chat server page has a topbar and is on the same domain, load it up
     // in an invisible iframe.
@@ -281,4 +285,4 @@
             console.log(`Chat Top Bar: ${msg}`);
     }
 
-})();
+}, 5000);
